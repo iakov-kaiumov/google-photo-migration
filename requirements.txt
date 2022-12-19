@@ -1,0 +1,10 @@
+cffi==1.15.1
+filedate==2.0
+mutagen==1.46.0
+piexif==1.1.3
+Pillow==9.3.0
+pycparser==2.21
+pyheif @ git+https://github.com/carsales/pyheif.git@694c3b2538978047e6c3070a510c03be399bc542
+python-dateutil==2.8.2
+six==1.16.0
+tqdm==4.64.1
