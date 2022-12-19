@@ -2,6 +2,7 @@ import logging
 import datetime
 from pathlib import Path
 
+import filedate
 import piexif
 from PIL import Image
 
@@ -11,7 +12,18 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def set_date_for_jpg(photo_filepath: Path, date: str):
+def set_anyfile_date(filepath: Path, date: datetime.datetime):
+    a_file = filedate.File(filepath.__str__())
+    timestamp = date.strftime("%Y.%m.%d %H:%M:%S")
+    a_file.set(
+        created=timestamp,
+        modified=timestamp,
+        accessed=timestamp
+    )
+
+
+def set_date_for_jpg(photo_filepath: Path, date: datetime.datetime):
+    date = date.strftime("%Y:%m:%d %H:%M:%S")
     try:
         _set_date_for_jpg(photo_filepath, date)
     except Exception as e:
@@ -38,7 +50,7 @@ def _set_date_for_jpg(photo_filepath: Path, date: str):
 
 
 def test():
-    date = datetime.datetime.now().strftime("%Y:%m:%d %H:%M:%S")
+    date = datetime.datetime.now()
     filepath = Path(__file__).resolve().parent / 'IMG_20210503_205804.jpg'
     set_date_for_jpg(filepath, date)
 

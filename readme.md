@@ -1,7 +1,7 @@
 # Google photo migration
 
-Helps to migrate from Google Photos to other cloud platform. In particular, this script
-transfers dates to JPG and PNG images from JSON metafiles.
+Helps to migrate from Google Photos to other cloud platform. 
+In particular, this script sets dates to JPG, PNG, HEIC images from JSON metafiles.
 
 Deleting jsons:
 
